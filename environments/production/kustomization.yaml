@@ -1,5 +1,5 @@
 resources:
-  - namespace.yaml
-  - cert-issuer.yaml
-  - sealed/db-sealed.yaml
-  - sealed/redis-sealed.yaml
+  - environments/production/namespace.yaml
+  - environments/production/cert-issuer.yaml
+  - environments/production/sealed/db-sealed.yaml
+  - environments/production/sealed/redis-sealed.yaml
