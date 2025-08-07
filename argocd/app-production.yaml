@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOUR_USER/immich-gitops
+    repoURL: https://github.com/jetri/immich-gitops
     targetRevision: main
     path: charts/immich-stack
     helm:
