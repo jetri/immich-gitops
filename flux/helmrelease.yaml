@@ -1,0 +1,18 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: immich-staging
+  namespace: immich-staging
+spec:
+  interval: 5m
+  releaseName: immich
+  chart:
+    path: charts/immich-stack
+    sourceRef:
+      kind: GitRepository
+      name: immich-gitops
+      namespace: flux-system
+  valuesFrom:
+    - kind: ConfigMap
+      name: staging-values
+      valuesKey: values.yaml

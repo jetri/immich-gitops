@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: immich-library-pv
+spec:
+  capacity:
+    storage: {{ .Values.immich.persistence.library.size }}
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: {{ .Values.nfs.server }}
+    path: {{ .Values.nfs.path }}/library
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: {{ .Values.global.storageClass }}
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: immich-library-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ .Values.immich.persistence.library.size }}
+  storageClassName: {{ .Values.global.storageClass }}
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: immich-mlcache-pv
+spec:
+  capacity:
+    storage: {{ .Values.immich.persistence.mlcache.size }}
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: {{ .Values.nfs.server }}
+    path: {{ .Values.nfs.path }}/mlcache
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: {{ .Values.global.storageClass }}
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: immich-mlcache-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ .Values.immich.persistence.mlcache.size }}
+  storageClassName: {{ .Values.global.storageClass }}

@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: immich
+spec:
+  replicas: {{ .Values.immich.replicas }}
+  selector:
+    matchLabels:
+      app: immich
+  template:
+    metadata:
+      labels:
+        app: immich
+    spec:
+      nodeSelector:
+        {{ .Values.global.gpu.nodeSelectorLabel }}: {{ .Values.global.gpu.nodeSelectorValue }}
+      containers:
+        - name: immich
+          image: "{{ .Values.immich.image.repository }}:{{ .Values.immich.image.tag }}"
+          ports:
+            - containerPort: 3001
+          env:
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: immich-postgres-user
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: immich-postgres-user
+                  key: password
+            - name: DB_DATABASE_NAME
+              value: {{ .Values.postgres.database }}
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: immich-redis-auth
+                  key: redis-password
+          volumeMounts:
+            - name: library
+              mountPath: /usr/src/app/upload
+            - name: mlcache
+              mountPath: /usr/src/app/.cache
+      volumes:
+        - name: library
+          persistentVolumeClaim:
+            claimName: immich-library-pvc
+        - name: mlcache
+          persistentVolumeClaim:
+            claimName: immich-mlcache-pvc

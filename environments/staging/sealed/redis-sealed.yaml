@@ -1,0 +1,13 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: immich-redis-auth
+  namespace: immich-staging
+spec:
+  encryptedData:
+    redis-password: Ag... # sealed
+  template:
+    metadata:
+      name: immich-redis-auth
+      namespace: immich-staging
+    type: Opaque

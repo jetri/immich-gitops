@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: immich-production
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/YOUR_USER/immich-gitops
+    targetRevision: main
+    path: charts/immich-stack
+    helm:
+      valueFiles:
+        - ../../environments/production/values-production.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: immich-production
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

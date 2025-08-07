@@ -1,0 +1,6 @@
+apiVersion: v2
+name: immich-stack
+description: All-in-one Helm chart for Immich (app, Postgres, Redis, NFS, GPU ML pods, Traefik ingress)
+type: application
+version: 0.1.0
+appVersion: "1.105.1" # Example Immich app version

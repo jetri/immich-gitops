@@ -1,0 +1,18 @@
+immich:
+  ingress:
+    hosts:
+      - host: immich.localhost
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: immich-tls
+        hosts:
+          - immich.localhost
+
+postgres:
+  database: immich_prod
+
+nfs:
+  server: 192.168.18.96
+  path: /mnt/cluster/nfs

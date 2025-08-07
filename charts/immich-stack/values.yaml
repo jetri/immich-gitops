@@ -1,0 +1,61 @@
+# Base values.yaml for Immich Helm Chart
+
+global:
+  storageClass: nfs-client
+  gpu:
+    enabled: true
+    nodeSelectorLabel: gpu
+    nodeSelectorValue: "true"
+
+immich:
+  image:
+    repository: ghcr.io/immich-app/immich-server
+    tag: v1.105.1
+  replicas: 1
+  ingress:
+    enabled: true
+    className: traefik
+    annotations:
+      cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
+    hosts:
+      - host: immich.localhost
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: immich-tls
+        hosts:
+          - immich.localhost
+  persistence:
+    library:
+      size: 350Gi
+    mlcache:
+      size: 10Gi
+
+postgres:
+  enabled: true
+  image: postgres:15
+  persistence:
+    enabled: true
+    size: 20Gi
+  resources: {}
+  existingSecret: immich-postgres-user
+  database: immich_db
+
+redis:
+  enabled: true
+  architecture: standalone
+  auth:
+    enabled: true
+    existingSecret: immich-redis-auth
+  persistence:
+    enabled: true
+    size: 5Gi
+
+nfs:
+  server: 192.168.18.96
+  path: /mnt/cluster/nfs
+
+resources:
+  limits:
+    nvidia.com/gpu: 1

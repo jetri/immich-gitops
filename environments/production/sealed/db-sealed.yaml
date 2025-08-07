@@ -1,0 +1,14 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: immich-postgres-user
+  namespace: immich-production
+spec:
+  encryptedData:
+    username: Ag... # sealed
+    password: Ag... # sealed
+  template:
+    metadata:
+      name: immich-postgres-user
+      namespace: immich-production
+    type: Opaque
