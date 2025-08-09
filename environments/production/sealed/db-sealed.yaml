@@ -1,3 +1,4 @@
+---
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
@@ -5,10 +6,9 @@ metadata:
   namespace: immich-production
 spec:
   encryptedData:
-    username: Ag... # sealed
-    password: Ag... # sealed
+    password: AgAaRuy6DyrdUR5tgkOsZdaiLo09+OPT7TB59f/Rr7OHgM3iThgVzuz3r5J0XrsBH5Wag48Mje2uuyjdZrUEw9xY6xkXq3Iv8K7KXW+qpqN4jfzaJ5AviTt/cg1cV9s+MpEcsztgF2rAGeNKpCe0QJiPPbkLXUpO7Q7/qtxNKoQo2i4sBJc8Vznv3nmxZ7GVrXaRHlnJfagGXhMuawTVzvgC0t3AEiTCW0PaX9GCP51gmI3CPMX195RS2Ag6Z2MEhzkadFjA1Xe1xBvZOoyvhxlyF8f7Nq/t7rbxPVUz+gcV7XUBgYvKbl9trQMXAlQu5K/pJo+ybkfi+Zxh8JjRCNinJh7qbhX22jVwmpXu9AHmkehLtqwbUcTw/OHrqRbUt1FH8mY7sw73nwuzDisDYEEezm/yaZ4FqDDmjml8OktPwfJ2tIrU1zuELTO7ptTZeeRuGvfnGrgb33u9M5iQ7rh4u4NS8tE31rVcGRtFxkXHMeSMZ9PIy925bGRVmlrRsKVJKR86VU5cSUfUYi7dLsI8XmDnWVno9A/93Jttp5RDMtOYiZ9ktlbTzPwewd14N1YGmPTAcASC5KoPjN6LuiunpshnAVYHpXb7k4J0D4wftLBBCW/RAq68+DvKaBMPaHRIaHXDC+qK4X8993H/xlQZBAIYHp4d0r5v5H+pemraofDn4l5yL/vHviWxBuIFXGKsAtD1NxJ5SIs=
+    username: AgCDGAAfDMpWILezMGENf7Baxl5tb3V/rtDKc01aRAtfxuFG0S3aTu3l6gxo0AXay6iHuM3tU84v+8C8IAG4vEm7xR14P/2aFLTQggPOYnR4gO0vqAv0ey6VpiqNQY8hhV2LwXhAflJJslT/+dj01GVEu/4qO+GWdT+heVFotMT1OpcjGHwKzQCGrKeT4okuv1rbovgZaUzFC5Ju/vVw7ZM9nvnfyPX/TErP24IBSt27mqnpOfL8yZX6zKrGFm4mqyZlwIWcsVkhKEbp4AGFdXcdjJimNsECA1bCC4PRpVdSYefk1duFvtaKjlHndJ2jH5CisGV236XUe+IzSxcBqf3fLZLoWyHWGlwovECjPBNpQxxJTT/A5P4dZdQLl844iC5Qjqma2d8/SV8DFYzJy2IQ29phYNE4iq3KKv41Xa9GNLgQEJBrIR4DZwe0xs6LeB6OsVUdfaJH7uQWFUXbZegZED92/ObcTEnm9Rf5GCivPoaNMtD+7OS+AnX3khd/b43CYkvMy7tRR6btaAyoRyQiLLMfGmTFjVa7ZRZhBEF9VsU8kINZAZBywJ3xCx6dlG+Paz/nL+3NLIxMoV/+OHsHqTPbhQ+svbb03f5hVO73MMWOQZWyFt06Ea8gOA9H3dzK9FCTdOqxx3uA/QPrGQGWZCrxx1fSK5xrH2ZxhQaGM1xg29bukfzbm0D5z7OpLR8eZapt/A==
   template:
     metadata:
       name: immich-postgres-user
       namespace: immich-production
-    type: Opaque

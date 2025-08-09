@@ -13,6 +13,21 @@ This repository contains a **complete Kubernetes GitOps setup** for [Immich](htt
 
 ---
 
+## Prerequisites
+
+### Install Argo CD
+``` bash
+kubectl apply -n argocd kubectl apply -n argocd \
+-f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+### Install CRDs
+
+Cert Manager
+``` bash
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.18.2/cert-manager.yaml        
+```
+
 ## 📂 Repository Structure
 
 ```text
