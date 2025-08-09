@@ -1,3 +1,4 @@
+---
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
@@ -5,9 +6,8 @@ metadata:
   namespace: immich-production
 spec:
   encryptedData:
-    redis-password: Ag... # sealed
+    redis-password: AgBpXIa579Klsxb7hTDzQXMucydRguquWixvbbRaxQUVIPmM115pftTsPHUDq8UatEnuxDt9P8zvF0Vc+tcBvBSydLMsZSk04i5RQY0bBiusl6mTgXaP5bXwAYOMb48N1md0OMcoCf6QLlWD8DQIBf1x2vnwc/ehxW5lHebUujHt553g0iViS43yd8ZlrXnALULBnwvU4YH69A1VHz71n5aZNdsoqjYrPDCBfp8cyJOwQMGKnbozxm9wnLnQaecrl0qGEGeoAyx47g7Co97ItAkQV7Tfl4L9BWb11eFbg61qOesQRKwWXQI+iOsB8VTd6XlXpNRnYzuG3WL9GSAOtFTxPQlg5jWy8hDXPC+q5NWfAmX2k791ZlXhyMUxSgC51uiOBPJ+zf5Zsnc3dCLkZTrOKDURTXw6iiegH3kgACbxPX26Z7iRGcfrLt4xaYNh812tTP+Y8grSASfjplAvzxq5AQAQFBqvWOuePyGe4Bh5KceNzwpylQpIUHNyktJheIn+qc7b9EP+CCFmtDu0SF76y2fP+V9u5Ys9As0GW6rmWGjzsMWmRM9sFPbkLW9Odob9RUiKlaAkl/88UO6xCEy6upZYHPPBJFwc+c+9AChP+/OtHmEqAcAHPIb2ZLm/XcABK7tlnUPBNpYrDib6jVL+iZXIYApmSYgXthAFRTxtdH4h0QxRcOMzQfasuDlJ0EyrM8d/gUgcb9A=
   template:
     metadata:
       name: immich-redis-auth
       namespace: immich-production
-    type: Opaque

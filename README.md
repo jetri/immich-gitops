@@ -28,6 +28,17 @@ Cert Manager
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.18.2/cert-manager.yaml        
 ```
 
+### Sealed Secret
+
+``` bash
+kubectl create secret generic immich-postgres-user \
+  --from-literal=username=jetri \
+  --from-literal=password=Angels03! \
+  --namespace immich-production \
+  --dry-run=client -o yaml \
+| kubeseal --controller-namespace=sealed-secrets --controller-name=sealed-secrets -o yaml > environments/staging/sealed/db-sealed.yaml
+```
+
 ## 📂 Repository Structure
 
 ```text
